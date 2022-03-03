@@ -1,0 +1,12 @@
+<footer>
+
+</footer>
+</body>
+<script>
+    if('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js?v=1.4');
+        });
+    }
+</script>
+</html>

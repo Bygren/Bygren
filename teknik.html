@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <title>PWA EGY</title>
+    <link rel="stylesheet" type="text/css" href="ux/style.css?v=1.4">
+    <script src="ux/script.js?v=1.3"></script>
+
+    <link rel="manifest" href="manifest.json?v=1.4">
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#2E7D32">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" sizes="192x192" href="img/icon/icon-192x192.png">
+
+    <!-- IOS/IPhone/IPad -->
+    <link rel="apple-touch-startup-image" href="img/icon/icon-192x192.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icon/icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icon/icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="img/icon/icon-180x180.png" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA EGY>
+
+    <!-- Fixar länkproblem på iPhone som hoppar till safari -->
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+
+</head>
+<body>
+    <header>
+       <button id="menuButton">☰</button>
+
+       <h1>PWA EGY</h1>
+   </header>
+   <nav id="topNav">
+       <ul id="menu">
+           <li><a href="index.html">Start</a></li>
+           <li><a href="teknik.html">PWA - teknik</a></li>
+           <li>Sevice-Worker</li>
+           <li>Manifest-filen</li>
+           <li>Exempel</li>
+       </ul>
+   </nav>
+
+    <main>
+        <h2>PWA - Tekniken</h2>
+        <img src="img/sw.png" alt="Mobiltelefoner" width="200">
+
+        <p>PWA står för Progressive Web Application. PWA är eg. en webbplats som kan
+            installera som fristående applikation på mobiltelefoner.
+        </p>
+        <p>
+            För att detta skall fungera behövs förutom webbplatsen 2 filer.
+            <ul>
+                <li><strong>Service Worker</strong> (JavaScript)</li>
+                <li><strong>Manifest-fil</strong> (Information om appen som ej kan styras av css, html eller JavaScript)</li>
+            </ul>
+        </p>
+        <p>Hjärtat är en s.k service worker. Detta är en javascript-fil (döps ofta
+            till sw.js)som sköter mycket av bakgrundsarbetet för applikationen. Den
+            kan bl.a. se till att vissa filer sparas så att app:en även fungerar i
+            off-line-läge. Den kan även sköta meddelandehantering som push-meddelanden
+        </p>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script>
+    if('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js?v=1.4');
+        });
+    }
+</script>
+</html>
