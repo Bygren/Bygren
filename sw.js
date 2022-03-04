@@ -3,11 +3,11 @@
  * https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers (2021-06-09)
  * https://web.dev/offline-cookbook/
  */
-const cacheKey = 'cache-v3';
+const cacheKey = 'cache-v4';
 
 const cacheArray = [
-  '/index.php',
-  '/teknik.php',
+  '/index.html',
+  '/teknik.html',
   '/manifest.json',
   '/favicon.ico',
   '/img/pwaPhones.png',
