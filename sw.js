@@ -47,6 +47,7 @@ self.addEventListener('activate', (e) => {
 
 /** cache-filer först, upddaterar cache från servern */
 self.addEventListener('fetch', function (event) {
+  if (!(event.request.url.indexOf('http') === 0)) return; 
   event.respondWith(
     caches.open(cacheKey).then(function (cache) {
       return cache.match(event.request).then(function (response) {
