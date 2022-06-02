@@ -37,12 +37,13 @@ self.addEventListener('install', event => {
 
 /** Rensar cache */
 self.addEventListener('activate', (e) => {
-  e.waitUntil(caches.keys().then((keyList) => {
-    Promise.all(keyList.map((key) => {
-      if (key === cacheKey) { return; }
-      caches.delete(key);
-    }))
-  })());
+  e.waitUntil(caches.keys().then((keys) => {
+    return Promise.all(keys.map((key) => {
+      if (key != cacheKe)) {
+        return caches.delete(key);
+      }
+    }));
+  }));
 });
 
 /** cache-filer först, upddaterar cache från servern */
